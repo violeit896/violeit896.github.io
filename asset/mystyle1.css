@@ -1,0 +1,117 @@
+.container{
+    display:flex;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 30px;
+    height: 300px;
+    margin-top: 300px;
+}
+.rectangle{
+    width:100px;
+    height:100px;
+    background-color: aqua;
+}
+.rectangle2{
+    width:100px;
+    height:100px;
+    background-color: aqua;
+    transform: translateY(-100px);
+}
+.wind{
+    width:10px;
+    height:80px;
+    background-color: gray;
+    transform:translateY(-280px);
+}
+.wind2{
+    width:10px;
+    height:140px;
+    background-color:gainsboro;
+    transform: translateY(-240px);
+}
+.rectangle3{
+    width:80px;
+    height: 300px;
+    background-color: blueviolet;
+    transform:translateY(5px);
+}
+.face{
+    position:relative;
+    width:500px;
+    height: 500px;
+    background-color: burlywood;
+    border-radius: 50%;
+    border:2px solid blue;
+}
+.eye1{
+    position: absolute;
+    top: 380px;
+    width:70px;
+    height:70px;
+    background-color: black;
+    border-radius: 50%;
+    left: 540px;
+}
+.eye2{
+    position: absolute;
+    top: 380px;
+    width:70px;
+    height:70px;
+    background-color: black;
+    border-radius: 50%;
+    right: 540px;
+}
+.mouth{
+    position:absolute;
+    bottom: 200px;
+    left: 640px;
+    width:100px;
+    height:50px;
+    border-bottom: 15px solid black;
+    border-radius: 200px 200px;
+}
+.topm1{
+    position:absolute;
+    top: 0px;
+    left: 640px;
+    width:80px;
+    height:220px;
+    background-color: blueviolet;
+}
+.topm2{
+    position:absolute;
+    top: 220px;
+    left: 525px;
+    width:300px;
+    height:40px;
+    background-color: blue;
+    border:4px solid aquamarine;
+}
+.rectangles{
+    position:absolute;
+    top: 260px;
+    left: 270px;
+    width:800px;
+    height:220px;
+    background-color:blanchedalmond;
+    border:2px solid black;
+    border-top-left-radius: 50%;
+    border-bottom-right-radius: 50%;
+}
+.bottom1{
+    position:absolute;
+    top: 480px;
+    left: 525px;
+    width:300px;
+    height:40px;
+    background-color: blue;
+    border:4px solid aquamarine;
+}
+.bottom2{
+    position:absolute;
+    top: 528px;
+    left: 640px;
+    width:80px;
+    height:280px;
+    background-color: blueviolet;
+}
