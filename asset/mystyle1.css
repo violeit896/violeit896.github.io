@@ -7,6 +7,14 @@
     margin-top: 300px;
 }
 .rectangle{
+    animation-name: colors;
+    animation-duration: 3s;
+    animation-timing-function: ease-in-out;
+    animation-delay:0s;
+    animation-iteration-count: infinite;
+    animation-direction:normal;
+    animation-play-state: running;
+    animation-fill-mode: none;
     width:100px;
     height:100px;
     background-color: aqua;
@@ -15,7 +23,22 @@
     width:100px;
     height:100px;
     background-color: aqua;
-    transform: translateY(-100px);
+    animation:bounce ease-in-out 3s infinite ;
+
+}
+.rectangleright{
+    animation-name: colors2;
+    animation-duration: 3s;
+    animation-timing-function: ease-in-out;
+    animation-delay:0s;
+    animation-iteration-count: infinite;
+    animation-direction:normal;
+    animation-play-state: running;
+    animation-fill-mode: none;
+    width:100px;
+    height:100px;
+    background-color: aqua;
+
 }
 .wind{
     width:10px;
@@ -77,6 +100,7 @@
     width:80px;
     height:220px;
     background-color: blueviolet;
+    animation:down ease-in-out 3s infinite;
 }
 .topm2{
     position:absolute;
@@ -85,7 +109,8 @@
     width:300px;
     height:40px;
     background-color: blue;
-    border:4px solid aquamarine;
+    border:1px solid aquamarine;
+    animation:down ease-in-out 3s infinite;
 }
 .rectangles{
     position:absolute;
@@ -94,9 +119,7 @@
     width:800px;
     height:220px;
     background-color:blanchedalmond;
-    border:2px solid black;
-    border-top-left-radius: 50%;
-    border-bottom-right-radius: 50%;
+    animation:resize ease-in-out 3s infinite;
 }
 .bottom1{
     position:absolute;
@@ -105,13 +128,107 @@
     width:300px;
     height:40px;
     background-color: blue;
-    border:4px solid aquamarine;
+    border:1px solid aquamarine;
+    animation:up ease-in-out 3s infinite;
 }
 .bottom2{
     position:absolute;
-    top: 528px;
+    top: 510px;
     left: 640px;
     width:80px;
-    height:280px;
+    height:300px;
     background-color: blueviolet;
+    animation:up ease-in-out 3s infinite;
+}
+@-webkit-keyframes colors{
+    0%{
+        background-color: antiquewhite;
+        transform:translateX(80px);
+    }
+    30%{
+        background-color: pink;
+    }
+    60%{
+        background-color: aqua;
+        transform: translateX(0px);
+    }
+    100%{
+        background-color: yellowgreen;
+        transform: translateX(80px);
+    }
+
+}
+@-webkit-keyframes colors2{
+    0%{
+        background-color: antiquewhite;
+        transform:translateX(-80px);
+    }
+    30%{
+        background-color: pink;
+    }
+    60%{
+        background-color: aqua;
+        transform: translateX(0px);
+    }
+    100%{
+        background-color: yellowgreen;
+        transform: translateX(-80px);
+    }
+
+}
+@-webkit-keyframes bounce{
+    0%{
+        transform: translateY(-200px);
+        background-color: antiquewhite;
+    }
+    30%{
+        background-color: pink;
+    }
+    60%{
+        transform:translateY(0px);
+        background-color: aqua;
+    }
+    100%{
+        transform: translateY(-200px);
+         background-color: yellowgreen;
+    }
+}
+@-webkit-keyframes down{
+    0%{
+        transform:translateY(-100px);
+        background-color:beige;
+    }
+    50%{
+        transform:translateY(0px);
+        background-color:pink;
+    }
+    100%{
+        transform:translateY(-100px);
+        background-color:gray;
+    }
+}
+@-webkit-keyframes up{
+    0%{
+        transform:translateY(100px);
+        background-color:aqua;
+    }
+    50%{
+        transform:translateY(0px);
+        background-color:bisque;
+    }
+    100%{
+        transform:translateY(100px);
+        background-color:aquamarine;
+    }
+}
+@-webkit-keyframes resize{
+    0%{
+        transform:scaleY(190%);
+    }
+    50%{
+        transform:scaleY(100%);
+    }
+    100%{
+        transform:scaleY(190%);
+    }
 }
