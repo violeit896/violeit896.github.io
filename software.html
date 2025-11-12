@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Diary</title>
+    <link rel="stylesheet" href="./asset/final.css">
+  </head>
+  <body>
+    <div id="maincontainer"></div>
+    <div class="grid">
+        <div class="grid-item" id="img-slot-1"></div>
+        <div class="grid-item" id="img-slot-2"></div>
+        <div class="grid-item" id="img-slot-3"></div>
+        <div class="grid-item" id="img-slot-4"></div>
+        <div class="grid-item" id="img-slot-5"></div>
+        <div class="grid-item" id="img-slot-6"></div>
+        <div class="grid-item" id="img-slot-7"></div>
+        <div class="grid-item" id="img-slot-8"></div>
+        <div class="grid-item" id="img-slot-9"></div>
+        <div class="grid-item" id="img-slot-10"></div>
+    </div>
+    <div class="bottom-bar">
+        <div class="left">
+            <input type="file" id="imageUpload" accept="iamge/*" hidden>
+            <button id="upload">Upload your day :]</button>
+        </div>
+        <div class="right">
+            <textarea id="userText"placeholder="Tell me about your day..."></textarea>
+            <button id="saveBtn">Save</button>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.9.0/lib/p5.min.js"></script>
+    <script src="final.js"></script>
+  </body>
+</html>

@@ -6,7 +6,7 @@ body{
 }
 body.dark-theme{
     --text-color:#eee;
-    --bckground-color:#121212;
+    --background-color:#121212;
 }
 @media(prefers-color-scheme: dark){
     body{
@@ -14,7 +14,7 @@ body.dark-theme{
         --background-color:#121212;
     }
     body.light-theme{
-        --text-color:#222;
+        --text-color:#121212;
         --background-color:#fff;
     }
 }
@@ -76,8 +76,8 @@ p{
     position: fixed;
     background:pink;
     color:#fff;
-    bottom:30px;
-    left:800px;
+    top:100px;
+    right:30px;
     padding:30px 100px;
     border:none;
     cursor:pointer;

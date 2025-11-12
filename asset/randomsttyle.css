@@ -1,0 +1,65 @@
+body{
+    margin:0px;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background-color: antiquewhite;
+    position:relative;
+}
+#main-circle{
+    width:500px;
+    height:500px;
+    background-color: bisque;
+    border:1pt solid black;
+    border-radius:50%;
+    position:relative;
+}
+.shape{
+    position:absolute;
+}
+.circle-black{
+    width:100px;
+    height:100px;
+    background:black ;
+    border-radius: 50%;
+}
+.circle-white{
+    width:100px;
+    height:100px;
+    background:white ;
+    border-radius: 50%;
+}
+.rect-red{
+    width:100px;
+    height:50px;
+    background:red;
+}
+.square-or{
+    width:80px;
+    height:80px;
+    background:orange;
+}
+.oval-blue{
+    width:150px;
+    height:60px;
+    background:blue;
+    border-radius: 50%;
+}
+.star-pink{
+    width:100px;
+    height:100px;
+    background:palevioletred;
+    clip-path:polygon(
+        50% 0%,
+        61% 35%,
+        98% 35%,
+        68% 57%,
+        79% 91%,
+        50% 70%,
+        21% 91%,
+        32% 57%,
+        2% 35%,
+        39% 35%
+    );
+}
