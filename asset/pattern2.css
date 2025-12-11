@@ -1,0 +1,17 @@
+body{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    height:100vh;
+    background-color: aliceblue;
+}
+#container{
+    position: relative;
+    width:500px;
+    height:500px;
+}
+.dot{
+    position:absolute;
+    background:rgb(225, 0, 38);
+    border-radius: 50%;
+}

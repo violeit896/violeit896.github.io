@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Diary</title>
+    <link rel="stylesheet" href="./asset/window2.css">
+  </head>
+  <body>
+    <div class="topbar">
+      <div class="topleft">
+        <span id="currentDate"></span>
+      </div>
+      <div class="topright">
+        <button id="btnClear">Clear</button>
+        <button id="btnDiary">Diary</button>
+        <button id="btnGallery">Gallery</button>
+      </div>
+    </div>
+    <main class="gallery">
+        <div class="tankwrapper">
+            <img src="./asset/fishtank.png"alt="fishtank" class="tank-img">
+            <div id="tank-hitarea"></div>
+            <img src="./asset/fish.png"alt="goldfish"class="fish fishright">
+            <img src="./asset/fish2.png"alt="goldfish"class="fish fishleft">
+        </div>
+        <div class="todiary">
+            <a href="software.html"class="todiarylink">*** Go to the Memory Repository ***</a>
+        </div>
+    </main>    
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.9.0/lib/p5.min.js"></script>
+    <script src="window2.js"></script>
+  </body>
+</html>

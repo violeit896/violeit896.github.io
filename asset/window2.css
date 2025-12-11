@@ -1,0 +1,152 @@
+ @font-face {
+        font-family:myFont;
+        src: url(./ExposureTrial+20.otf)format('opentype');
+        font-weight:normal;
+        font-style:normal;
+    }
+body,html{
+    margin:0;
+    padding:0;
+    overflow-x:hidden;
+    overflow-y: auto;
+    font-family:'myFont';
+    height:100vh;
+    background:linear-gradient(to bottom,
+    rgb(255, 240, 162),
+    white,
+    rgb(108, 184, 255),
+    rgb(255, 168, 200));
+    background-size: 100% 300%;
+    animation:bggradient 6s ease-in-out infinite alternate;
+}
+@keyframes bggradient{
+    0%{
+       background-position: 0% 0%;
+    }
+    100%{
+        background-position: 0% 100%;
+    }
+}
+.topbar{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:5vh;
+    background-color: rgba(255, 255, 255, 1);
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding: 0 20px;
+    z-index:10;
+    backdrop-filter:blur(12px)saturate(180%);
+    border-bottom: 0.5px solid rgba(255,255,255,0.35);
+    box-shadow:0 5px 15px rgba(0,0,0,0.08);
+    box-sizing:border-box;
+}
+.topleft{
+    font-size: 15px;
+    width:250px;
+}
+.topcenter h1{
+    font-size:18px;
+    font-weight:bold;
+    margin:0;
+}
+.topright{
+    display:flex;
+    gap:10px;
+}
+.topbar button{
+    background:transparent;
+    border:none;
+    padding:6px 10px;
+    cursor:pointer;
+    font-size:15px;
+    font-family:'myFont';
+    border-radius: 20px;
+}
+.gallery{
+    padding-top: 8vh;
+    display:flex;
+    flex-direction:column;
+    align-items: center;
+    justify-content:flex-start;
+    min-height:100vh;
+}
+.tankwrapper{
+    position:relative;
+    width:60vh;
+    max-width:900px;
+    margin-top: 40px;
+    aspect-ratio: 4/3;
+    overflow: visible;
+}
+.tank-img{
+    width:100%;
+    height:100%;
+    margin-top:70px ;
+    object-fit: contain;
+    display: block;
+    transform:scale(2);
+    transform-origin:center;
+    pointer-events: none;
+}
+#tank-hitarea{
+    position:absolute;
+    left:0%;
+    right:15%;
+    top:80%;
+    bottom:-29%;
+    pointer-events: none;
+}
+.fish{
+    position: absolute;
+    width:90px;
+    height:auto;
+    top:40%;
+    transform-origin: center;
+}
+.fishleft{
+    left:-40%;
+    top:80%;
+    animation:swimleft 15s ease-in-out infinite;
+}
+.fishright{
+    right:-40%;
+    animation:swimright 12s ease-in-out infinite;
+}
+@keyframes swimleft{
+    0%{transform:translateX(0) ;}
+    50%{transform:translateX(800%) ;}
+    100%{transform:translateX(0);}
+}
+@keyframes swimright{
+    0%{transform:translateX(0);}
+    50%{transform:translateX(-800%);}
+    100%{transform:translateX(0);}
+}
+.mood-ball{
+    position:fixed;
+    width:50px;
+    height:50px;
+    border-radius:50%;
+    pointer-events: none;
+}
+.todiary{
+    margin-top: 220px;
+    text-align: center;
+    position: relative;
+    z-index:20;
+}
+.todiarylink{
+    font-size: 20px;
+    color: black;
+    cursor:pointer;
+    font-family:'myFont';
+    text-decoration: none;
+}
+.todiarylink:hover{
+    color:rgb(0, 106, 39);
+    text-decoration: none;
+}

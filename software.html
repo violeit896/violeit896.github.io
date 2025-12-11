@@ -7,28 +7,66 @@
     <link rel="stylesheet" href="./asset/final.css">
   </head>
   <body>
-    <div id="maincontainer"></div>
-    <div class="grid">
-        <div class="grid-item" id="img-slot-1"></div>
-        <div class="grid-item" id="img-slot-2"></div>
-        <div class="grid-item" id="img-slot-3"></div>
-        <div class="grid-item" id="img-slot-4"></div>
-        <div class="grid-item" id="img-slot-5"></div>
-        <div class="grid-item" id="img-slot-6"></div>
-        <div class="grid-item" id="img-slot-7"></div>
-        <div class="grid-item" id="img-slot-8"></div>
-        <div class="grid-item" id="img-slot-9"></div>
-        <div class="grid-item" id="img-slot-10"></div>
+    <div class="topbar">
+      <div class="topleft">
+        <span id="currentDate"></span>
+      </div>
+      <div class="topcenter">
+        <h1>The Memory Repository</h1>
+      </div>
+      <div class="topright">
+        <button id="btnClear">Clear</button>
+        <button id="btnDiary">Diary</button>
+        <button id="btnGallery">Gallery</button>
+      </div>
     </div>
-    <div class="bottom-bar">
-        <div class="left">
-            <input type="file" id="imageUpload" accept="iamge/*" hidden>
-            <button id="upload">Upload your day :]</button>
+    <div id="maincontainer"></div>
+    <div class="grid"id="diaryGrid"></div>
+    <div class="controlbar">
+      <div class="draw-control">
+        <div class="drawtool">
+          <button id="drawBtn"class="icon-button"aira-label="Use pencil to scratch"></button>
+          <div class="drawtool-text">
+            Use this pencil to stratch out the picture and see the notes!
+          </div>
         </div>
-        <div class="right">
-            <textarea id="userText"placeholder="Tell me about your day..."></textarea>
-            <button id="saveBtn">Save</button>
+        <button id="eraseBtn">Erase</button>
+      </div>
+
+      <div class="filter-control">
+        <span>Filter by:</span>
+        <div class="filterdropdown">
+          <button id="filterBtn" data-filter="None">None</button>
+          <div id="filteroption"class="filteroption hidden">
+           <button class="filter-opt" data-filter="Recent">Most Recent</button>
+           <button class="filter-opt" data-filter="Happy">Happy</button>
+           <button class="filter-opt" data-filter="So-so">So-so</button>
+           <button class="filter-opt" data-filter="Tired">Tired</button>
+           <button class="filter-opt" data-filter="Angry">Angry</button>
+          </div>
         </div>
+      </div>
+    </div>
+
+    <div class="sidebar">
+      <p class="welcome-text">
+        Welcome to the Memory Repository! You can use it as an online diary that record your day. Press "upload your picture" to upload any picture from your device. Choose a mood option, leave your message in the text box and then click "publish to website" to store your memory on online! </p>
+        <div class="input-group">
+            <input type="file" id="imageUpload" accept="image/*" hidden>
+            <button id="upload">Uplaod your picture of the day</button>
+            <div class="mood">
+            <button id="moodBtn">Mood</button>
+            <div id="moodOptions"class="mood4">
+               <button class="moodopt"data-value="Happy">Happy</button>
+               <button class="moodopt"data-value="So-so">So-so</button>
+               <button class="moodopt"data-value="Tired">Tired</button>
+               <button class="moodopt"data-value="Sad">Sad</button>
+            </div>
+          </div>
+          <textarea id="userText">Tell me about your day...</textarea>
+          <input type="text"id="userName"placeholder="Type your name">
+      </div>
+      <button id="saveBtn">Publish to website</button>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/p5@1.9.0/lib/p5.min.js"></script>
     <script src="final.js"></script>

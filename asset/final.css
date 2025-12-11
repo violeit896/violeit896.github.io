@@ -1,89 +1,361 @@
+ @font-face {
+        font-family:myFont;
+        src: url(./ExposureTrial+20.otf)format('opentype');
+        font-weight:normal;
+        font-style:normal;
+    }
 body,html{
     margin:0;
     padding:0;
-    overflow:hidden;
-    font-family:'Courier New', Courier, monospace;
+    overflow-y:auto;
+    overflow-x:hidden;
+    font-family:'myFont';
     height:100vh;
-    background:linear-gradient(to bottom,cornflowerblue,pink,white);
+    background:linear-gradient(to bottom,rgb(200, 219, 255),rgb(255, 255, 255));
 }
 #maincontainer{
     position:fixed;
     top:0;
     left:0;
+    width:100%;
+    height:100vh;
     z-index:0;
 }
 .grid{
-    position:absolute;
-    top:0;
-    left:0;
-    width:100%;
-    height:calc(100vh - 200px);
+    position:relative;
+    margin-top:10vh;
+    margin-left:240px;
+    width:calc(100% - 240px);
+    height:auto;
     display:grid;
-    grid-template-columns:repeat(5,1fr);
-    grid-template-rows: repeat(2,1fr);
-    border:0px dashed white;
+    grid-template-columns:repeat(auto-fill,minmax(280px,1fr));
+    grid-auto-rows:500px;
+    padding-bottom:20px;
     z-index:1;
 }
 .grid-item{
     border:1px dashed white;
     position:relative;
     overflow:hidden;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:0;
 }
-.grid-item img{
+.grid-item .text-overlay{
+    display:flex;
+    position:absolute;
+    top:0;
+    left:0;
     width:100%;
     height:100%;
-    object-fit:cover;
-}
-.grid-item.hover-text{
-    display:none;
-    position:absolute;
-    bottom:10px;
-    left:10px;
-    background-color: antiquewhite 0,5;
+    justify-content: center;
+    align-items:center;
+    background-color: rgba(0,0,0,0.2);
+    color:white;
+    font-size:16px;
     padding:10px;
-    border-radius:5px;
+    box-sizing:border-box;
+    z-index:0;
 }
-.grid-item:hover.hover-text{
-    display:block;
-}
-.bottom-bar{
+.grid-item .grid-item-mask{
     position:absolute;
-    bottom:0;
+    top:0;
+    left:0;
     width:100%;
-    height:200px;
-    background-color:cornflowerblue;
+    height:100%;
+    z-index:1;
+}
+.grid-item canvas{
+    position:absolute;
+    top:0;
+    left:0;
+    z-index:2;
+}
+.draw-mode {
+    cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='20' height='20'><circle cx='10' cy='10' r='6' stroke='black' stroke-width='2' fill='none'/></svg>") 10 10, crosshair !important;
+}
+.sidebar{
+    position:fixed;
+    top:0;
+    left:0;
+    bottom:0;
+    width:240px;
+    height:100vh;
+    background-color:rgba(255,255,255,0.35);
+    padding:8vh 20px 20px 20px;
+    box-sizing:border-box;
+    display:flex;
+    flex-direction: column;
+    gap:15px;
+    z-index:4;
+    box-shadow:2px 0 5px rgba(0,0,0,0.1);
+}
+.welcome-text{
+    font-size:15px;
+    line-height:1.4;
+    padding-bottom:5px;
+    border-bottom:0.5px dashed #fff;
+    color:#333;
+}
+.input-group{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+}
+.sidebar button,.sidebar input[type="text"],.sidebar textarea{
+    width:100%;
+    padding:15px 8px;
+    border:none;
+    border-radius:20px;
+    background-color: rgba(255,255,255,0.7);
+    font-family:'myFont';
+    box-sizing:border-box;
+    text-align:center;
+}
+#saveBtn{
+    margin-top:10px;
+    background-color: #fff;
+    padding:10px;
+    color:#333;
+}
+#userText,#userName{
+    padding:10px,8px;
+    height:auto;
+}
+#userText{
+    height:100px;
+    text-align: left;
+}
+#userName{
+    text-align: center;
+}
+.topbar{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:5vh;
+    background-color: rgba(255, 255, 255, 1);
     display:flex;
     justify-content:space-between;
     align-items:center;
-    padding:20px;
-    z-index:2;
+    padding: 0 20px;
+    z-index:10;
+    backdrop-filter:blur(12px)saturate(180%);
+    border-bottom: 0.5px solid rgba(255,255,255,0.35);
+    box-shadow:0 5px 15px rgba(0,0,0,0.08);
     box-sizing:border-box;
 }
-.left,.right{
+.topleft{
+    font-size: 15px;
+    width:250px;
+}
+.topcenter h1{
+    font-size:18px;
+    font-weight:bold;
+    margin:0;
+}
+.topright{
     display:flex;
-    flex-direction:column;
-    align-items:flex-start;
+    gap:10px;
 }
-button{
-    background-color:rgba(255,255,255,1);
-    border:0dvh;
-    padding:10px 20px;
-    cursor:pointer;
-    font-size:16px;
-    border-radius:5px;
-    font-family: 'Courier New', Courier, monospace;
-}
-button:hover{
-    background-color:#f0f0f0 ;
-}
-textarea{
-    width:800px;
-    height: 100px;
-    margin-bottom:10px;
-    background-color: rgba(255,255,255,1);
+.topbar button{
+    background:transparent;
     border:none;
-    padding: 10px;
-    border-radius:5px;
-    font-size:14px;
-    resize:none;
+    padding:6px 10px;
+    cursor:pointer;
+    font-size:15px;
+    font-family:'myFont';
+    border-radius: 20px;
+}
+.mood{
+    position:relative;
+}
+#moodBtn{
+   text-align: center;
+}
+.mood4{
+    display: none; 
+    position: absolute;
+    top:0;
+    left: 100%;
+    background-color: white;
+    border-radius: 20px;
+    padding: 5px;
+    display: flex; 
+    flex-direction: column;
+    gap: 5px;
+    z-index: 20;
+    width: 150px;
+    box-shadow:0 4px 8px rgba(0,0,0,0.1);
+}
+.moodopt{
+    background: transparent;
+    text-align: left;
+    border: none;
+    border-radius: 15px;
+    padding: 8px;
+    transition: background 0.2s;
+}
+.moodopt.hover{
+    background-color:#eee;
+}
+.controlbar{
+    position:fixed;
+    top:5vh;
+    left:240px;
+    width:calc(100% - 240px);
+    height:6vh;
+    background-color: whitesmoke;
+    border-bottom: 1px solid #ddd;
+    display:flex;
+    align-items:center;
+    justify-items: flex-start;
+    padding:0 30px;
+    gap:40px;
+    z-index:5;
+}
+.draw-control, .filter-control {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+.filter-group span {
+    font-weight: bold;
+    font-size: 14px;
+}
+.controlbar button {
+    background-color: #ccc;
+    color: #333;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-family: 'myFont';
+    font-size: 15px;
+    transition: background-color 0.2s;
+}
+.controlbar button.active,
+.controlbar button:hover {
+    background-color: #bbb;
+}
+.filterdropdown{
+    background-color: #eee ;
+    padding:5px 15px ;
+    position:relative;
+    border-radius: 20px;
+    z-index:6;
+    display: inline-block;
+}
+.filterdropdown #filterBtn{
+    background:transparent;
+    border:none;
+    padding:5px 10px;
+    border-radius: 20px;
+    cursor:pointer;
+    font-size:15px;
+    font-family:'myFont';
+}
+.filteroption{
+    position:absolute;
+    top:50%;
+    left:100%;
+    transform: translateY(-50%);
+    min-width:500px;
+    background-color: #eee;
+    border-radius: 20px;
+    box-shadow:0 4px 8px rgba(0,0,0,0.1);
+    display:flex;
+    flex-direction:row;
+    gap:10px;
+    padding:5px;
+    margin-left:5px;
+}
+.filteroption button{
+    background:transparent ;
+    text-align: center;
+    padding:8px 10px;
+    border-radius: 15px ;
+    flex-grow:1;
+}
+.filteroption button:hover{
+    background-color: #bbb;
+}
+.hidden{
+    display:none !important;
+}
+.draw-control button {
+    background-color: #eee;
+}
+.sidebar button:hover{
+   background-color: #bbb;
+}
+.topbar button:hover{
+    background-color:#bbb;
+}
+.controlbar button:hover{
+    background-color: #bbb;
+}
+#saveBtn:hover{
+    background-color: #bbb;
+}
+.icon-button#drawBtn:hover{
+    background-color: transparent;
+}
+.icon-button#drawBtn{
+    width:40px;
+    height:40px;
+    padding:0;
+    border:none;
+    background-color: transparent;
+    background-image: url('./pencil.png');
+    background-size:contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor:pointer;    
+}
+.drawtool{
+    position:relative;
+    display:inline-block;
+}
+.drawtool-text{
+    position:absolute;
+    top:140%;
+    transform:translateY(-70%);
+    white-space: nowrap;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius:8px;
+    padding:6px 10px;
+    font-size:15px;
+    font-family:'myFont';
+    color:rgb(51, 51, 51);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+    opacity:0;
+    pointer-events: none;
+    transition: opasity 0.2s ease;
+    border: 1px solid rgba(0,0,0,0.15);
+    z-index:20;
+}
+.drawtool-text::before{
+    content:'';
+    position: absolute;
+    left:-6px;
+    top:70%;
+    transform: translateY(-70%);
+    border-width:6px;
+    border-style:solid;
+    border-color:transparent rgba(255,255,255,0.95) transparent transparent;
+}
+.drawtool:hover .drawtool-text{
+    opacity:1;
+}
+.icon-button#drawBtn.active-pencil{
+    filter:drop-shadow(0 0 6px rgba(0,0,0,0.5));
+    transform: scale(1.2);
+}
+#eraseBtn{
+    align-self: center;
+    margin:0;
 }
